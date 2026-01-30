@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EMPLOYEE PERFORMANCE MONITORING AND REPORTING SYSTEM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="starfield"></div>
+  <div class="nebula"></div>
+  <div class="scanlines"></div>
+  <div class="holo-grid"></div>
+  <div class="particles"></div>
+
+  <div class="content-wrapper">
+    <header class="header">
+      <div class="title-big">EMPLOYEE PERFORMANCE MONITORING AND REPORTING SYSTEM</div>
+    </header>
+
+    <section class="search-card">
+      <input id="employeeId" type="number" placeholder="ENTER EMPLOYEE ID" />
+      <button id="fetchBtn">FETCH PROFILE</button>
+      <button id="clearBtn" class="ghost">CLEAR</button>
+      <button id="downloadPdfBtn" class="ghost" style="display:none;">DOWNLOAD PDF</button>
+      <div id="status" class="status">READY</div>
+    </section>
+
+    <section id="profileArea" class="dashboard" hidden>
+      <aside class="profile-card">
+        <div id="initial" class="avatar">R</div>
+        <h2 id="name">—</h2>
+        <p id="roleDept" class="muted">—</p>
+        <div class="info-grid">
+          <div><small>EMAIL</small><p id="email">—</p></div>
+          <div><small>PHONE</small><p id="phone">—</p></div>
+          <div><small>JOINED</small><p id="joined">—</p></div>
+          <div><small>REVIEW</small><p id="reviewSummary">—</p></div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-num" id="taskCount">0</div>
+            <div class="stat-label">TASKS</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" id="avgScore">—</div>
+            <div class="stat-label">AVG SCORE</div>
+          </div>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>PROJECTS</h3>
+            <ul id="projectsList"></ul>
+          </div>
+          <div class="card">
+            <h3>ATTENDANCE</h3>
+            <ul id="attendanceList"></ul>
+          </div>
+        </div>
+
+        <div class="card chart-card">
+          <h3>PERFORMANCE</h3>
+          <canvas id="tasksChart" height="140"></canvas>
+        </div>
+
+        <div class="card">
+          <h3>TASK DETAILS</h3>
+          <table>
+            <thead>
+              <tr><th>ID</th><th>PROJECT</th><th>SCORE</th><th>STATUS</th><th>DATE</th></tr>
+            </thead>
+            <tbody id="tasksTable"></tbody>
+          </table>
+        </div>
+      </main>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
